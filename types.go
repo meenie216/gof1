@@ -10,7 +10,7 @@ type Circuit struct {
 		Long     string `json:"long"`
 		Locality string `json:"locality"`
 		Country  string `json:"country"`
-	} `json:"Location"` 
+	} `json:"Location"`
 }
 
 // Driver type details a specific F1 driver who has participated in 1 or more recorded sessions.
@@ -81,6 +81,15 @@ type F1 struct {
 			Round  string `json:"round"`
 			Races  []Race `json:"Races"`
 		} `json:"RaceTable"`
+		DriverTable struct {
+			Season  string   `json:"season"`
+			Round   string   `json:"round"`
+			Drivers []Driver `json:"Drivers"`
+		} `json:"DriverTable"`
+		ConstructorTable struct {
+			Season       string        `json:"season"`
+			Round        string        `json:"round"`
+			Constructors []Constructor `json:"Constructrs"`
+		} `json:"ConstructorTable"`
 	} `json:"MRData"`
 }
-

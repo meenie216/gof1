@@ -36,6 +36,22 @@ func GetRaceWithResults(year int, raceNumber int) Race {
 	return result.MRData.RaceTable.Races[0]
 }
 
+// GetDrivers gets all drivers who have competed in the specified season
+func GetDrivers(year int) []Driver {
+	url := fmt.Sprintf("%s/%v/drivers.json", baseURL, year)
+	result := makeAPICall(url)
+
+	return result.MRData.DriverTable.Drivers
+}
+
+// GetConstructors retrives all constructors that have participated in the specific season
+func GetConstructors(year int) []Constructor {
+	url := fmt.Sprintf("%s/%v/constructors.json", baseURL, year)
+	result := makeAPICall(url)
+
+	return result.MRData.ConstructorTable.Constructors
+}
+
 func makeAPICall(url string) F1 {
 	var result F1
 
